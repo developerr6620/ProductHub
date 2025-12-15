@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import Image from "next/image";
 import Link from "next/link";
 import { FiTrash2, FiEdit2 } from "react-icons/fi";
 import {
@@ -114,15 +113,12 @@ export default function ProductDetailPage() {
         </div>
 
         <div className="product-detail__container">
-          {/* Product Image */}
+          {/* Product img */}
           <div className="product-detail__image">
-            <Image
+            <img
               src={getImageSrc(product.image)}
               alt={product.title}
-              fill
-              sizes="(max-width: 1024px) 100vw, 400px"
               style={{ objectFit: "contain" }}
-              priority
             />
           </div>
 

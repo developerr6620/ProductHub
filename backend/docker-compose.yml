@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  product_hub:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "11039:11039"
+    environment:
+      - PORT=11039
+      - NODE_ENV=development
+      - MONGODB_URI=mongodb://mongodb:27017/product_catalog
+    restart: always

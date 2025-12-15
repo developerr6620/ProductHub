@@ -3,12 +3,12 @@
 import React, { useState, useMemo } from "react";
 import { FiPlus } from "react-icons/fi";
 import { useGetProductsQuery } from "@/store/services/productApi";
-import ProductCard from "@/components/ProductCard";
-import ProductForm from "@/components/ProductForm";
-import LoadingSpinner from "@/components/LoadingSpinner";
-import EmptyState from "@/components/EmptyState";
-import Filters, { FilterState } from "@/components/Filters";
-import { useAuth } from "@/context/AuthContext";
+import ProductCard from "../components/ProductCard";
+import ProductForm from "../components/ProductForm";
+import LoadingSpinner from "../components/LoadingSpinner";
+import EmptyState from "../components/EmptyState";
+import Filters, { FilterState } from "../components/Filters";
+import { useAuth } from "../context/AuthContext";
 
 export default function HomePage() {
   const { isAuthenticated } = useAuth();

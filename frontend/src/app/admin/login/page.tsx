@@ -3,9 +3,9 @@
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { FiMail, FiLock, FiLogIn } from "react-icons/fi";
-import { useLoginMutation } from "@/store/services/authApi";
-import { useAuth } from "@/context/AuthContext";
 import { toast } from "react-toastify";
+import { useLoginMutation } from "../../../store/services/authApi";
+import { useAuth } from "../../../context/AuthContext";
 
 export default function AdminLoginPage() {
   const router = useRouter();

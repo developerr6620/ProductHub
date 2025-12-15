@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Product } from "@/store/services/productApi";
 
 interface ProductCardProps {
@@ -27,11 +26,9 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
     <Link href={`/products/${product.slug}`} className="product-card">
       <div className="product-card__image">
-        <Image
+        <img
           src={getImageSrc(product.image)}
           alt={product.title}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           style={{ objectFit: "cover" }}
         />
         <span

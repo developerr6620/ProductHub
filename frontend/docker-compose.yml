@@ -1,0 +1,17 @@
+
+version: '3.8'
+
+services:
+  nextjs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: producthub_frontend
+    ports:
+      - "11038:11038"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=11038
+      - NEXT_PUBLIC_API_URL=http://localhost:5000/api
+    # Healthcheck to verify the application is running correctly

@@ -1,21 +1,15 @@
-FROM node:18-alpine
+
+FROM node:20
 
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
-
-# Install dependencies
+COPY ./package.json ./
 RUN npm install
 
-# Copy source code
-COPY . .
+COPY ./ ./
 
-# Create uploads directory
 RUN mkdir -p uploads
 
-# Expose port
-EXPOSE 5000
+RUN npm run build
 
-# Start the application
-CMD ["npm", "run", "dev"]
+CMD ["node", "dist/index.js"]

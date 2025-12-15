@@ -252,10 +252,10 @@ const ProductForm: React.FC<ProductFormProps> = ({
                   </div>
                 </div>
 
-                {/* Image Upload */}
+                {/* img Upload */}
                 <div className="product-form__group">
                   <label className="product-form__label">
-                    Image {isEditMode ? "(leave empty to keep current)" : "*"}
+                    img {isEditMode ? "(leave empty to keep current)" : "*"}
                   </label>
 
                   {/* Toggle between file upload and URL */}

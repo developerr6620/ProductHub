@@ -19,7 +19,7 @@ const CATEGORIES = ["Clothing", "Shoes", "Accessories", "Electronics"];
 
 const SORT_OPTIONS = [
   { value: "price_asc", label: "Price: Low to High" },
-  { value: "price_desc", label: "Price: High to Low" }
+  { value: "price_desc", label: "Price: High to Low" },
 ];
 
 const Filters: React.FC<FiltersProps> = ({ onFilterChange }) => {
@@ -95,7 +95,8 @@ const Filters: React.FC<FiltersProps> = ({ onFilterChange }) => {
     };
   }, []);
 
-  const sliderValue = Number(filters.maxPrice) || 10000;
+  const sliderValue =
+    filters.maxPrice === "" ? 10000 : Number(filters.maxPrice);
   const sliderPercent = (sliderValue / 10000) * 100;
 
   return (
@@ -134,23 +135,35 @@ const Filters: React.FC<FiltersProps> = ({ onFilterChange }) => {
         <h4 className="filters__section-title">Price Range</h4>
         <div className="filters__price-slider">
           <div className="filters__price-slider-row">
-            <span className="filters__price-slider-label">0</span>
-            <span className="filters__price-slider-label">max</span>
+            <span className="filters__price-slider-label">$0</span>
+            <span className="filters__price-slider-label">$10,000</span>
           </div>
-          <input
-            type="range"
-            min="0"
-            max="10000"
-            step="100"
-            value={sliderValue}
-            onChange={(e) => handlePriceChange(e.target.value)}
-            className="filters__price-slider-input"
-            style={
-              {
-                "--slider-percent": `${sliderPercent}%`,
-              } as React.CSSProperties
-            }
-          />
+          <div className="filters__price-slider-wrapper">
+            <input
+              type="range"
+              min="0"
+              max="10000"
+              step="100"
+              value={sliderValue}
+              onChange={(e) => handlePriceChange(e.target.value)}
+              className="filters__price-slider-input"
+              style={
+                {
+                  "--slider-percent": `${sliderPercent}%`,
+                } as React.CSSProperties
+              }
+            />
+            <div
+              className="filters__price-slider-tooltip"
+              style={
+                {
+                  "--tooltip-position": `${sliderPercent}%`,
+                } as React.CSSProperties
+              }
+            >
+              ${sliderValue.toLocaleString()}
+            </div>
+          </div>
         </div>
       </div>
 

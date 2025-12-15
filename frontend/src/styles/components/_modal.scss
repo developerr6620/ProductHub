@@ -1,0 +1,281 @@
+@import "../variables";
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    max-height: 90vh;
+    background: $white;
+    border-radius: $radius-xl;
+    box-shadow: $shadow-xl;
+    overflow: hidden;
+    animation: fadeIn 0.2s ease;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid $border-light;
+
+    h2 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: $text-primary;
+    }
+  }
+
+  &__close {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $gray-100;
+    border: none;
+    border-radius: $radius-md;
+    color: $text-secondary;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &:hover {
+      background: $gray-200;
+      color: $text-primary;
+    }
+  }
+
+  &__body {
+    padding: 1.5rem;
+    overflow-y: auto;
+    max-height: calc(90vh - 140px);
+  }
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+
+    @media (max-width: $breakpoint-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $text-primary;
+  }
+
+  &__input,
+  &__textarea,
+  &__select {
+    @include input-style;
+
+    &.error {
+      border-color: $error-color;
+    }
+  }
+
+  &__textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  &__select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23737373' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.875rem center;
+    padding-right: 2.5rem;
+
+    option {
+      background: $white;
+    }
+  }
+
+  &__error {
+    font-size: 0.75rem;
+    color: $error-color;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  &__image-upload {
+    border: 1px dashed $border-medium;
+    border-radius: $radius-lg;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &:hover {
+      border-color: $gray-400;
+      background: $gray-50;
+    }
+
+    &.has-image {
+      padding: 0;
+      border-style: solid;
+      border-color: $gray-300;
+    }
+
+    input {
+      display: none;
+    }
+
+    &-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: $text-secondary;
+
+      svg {
+        font-size: 2rem;
+        color: $gray-400;
+      }
+
+      p {
+        font-size: 0.875rem;
+      }
+
+      span {
+        font-size: 0.75rem;
+        color: $gray-400;
+      }
+    }
+
+    &-preview {
+      position: relative;
+
+      img {
+        width: 100%;
+        max-height: 180px;
+        object-fit: cover;
+        border-radius: $radius-md;
+      }
+
+      button {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        width: 28px;
+        height: 28px;
+        background: rgba($gray-900, 0.7);
+        border: none;
+        border-radius: $radius-full;
+        color: $white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all $transition-fast;
+
+        &:hover {
+          background: $error-color;
+        }
+      }
+    }
+  }
+
+  &__slug {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.625rem 0.875rem;
+    background: $gray-50;
+    border-radius: $radius-md;
+    color: $text-secondary;
+    font-size: 0.8125rem;
+
+    code {
+      color: $text-primary;
+      font-family: monospace;
+    }
+  }
+
+  &__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+
+    input {
+      appearance: none;
+      width: 44px;
+      height: 24px;
+      background: $gray-200;
+      border-radius: $radius-full;
+      position: relative;
+      cursor: pointer;
+      transition: all $transition-fast;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 20px;
+        height: 20px;
+        background: white;
+        border-radius: 50%;
+        transition: all $transition-fast;
+        box-shadow: $shadow-sm;
+      }
+
+      &:checked {
+        background: $success-color;
+
+        &::after {
+          left: 22px;
+        }
+      }
+    }
+
+    span {
+      font-size: 0.875rem;
+      color: $text-primary;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+
+    button {
+      flex: 1;
+    }
+  }
+}

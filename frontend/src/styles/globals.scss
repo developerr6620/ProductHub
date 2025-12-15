@@ -1,0 +1,191 @@
+@import "./variables";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, sans-serif;
+  background: $bg-primary;
+  color: $text-primary;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+// Utility Classes
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @include respond-to($breakpoint-md) {
+    padding: 0 2rem;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: $radius-lg;
+  font-weight: 500;
+  font-size: 0.875rem;
+  border: none;
+  transition: all $transition-normal;
+
+  &-primary {
+    background: $primary-color;
+    color: $white;
+
+    &:hover {
+      background: $primary-dark;
+    }
+  }
+
+  &-secondary {
+    background: $gray-100;
+    color: $text-primary;
+    border: 1px solid $border-light;
+
+    &:hover {
+      background: $gray-200;
+    }
+  }
+
+  &-danger {
+    background: $error-color;
+    color: $white;
+
+    &:hover {
+      background: darken($error-color, 10%);
+    }
+  }
+
+  &-outline {
+    background: transparent;
+    border: 1px solid $border-medium;
+    color: $text-primary;
+
+    &:hover {
+      background: $gray-100;
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+// Scrollbar Styles - Minimal
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: $gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $gray-300;
+  border-radius: $radius-full;
+
+  &:hover {
+    background: $gray-400;
+  }
+}
+
+// Toast customization
+.Toastify__toast-container {
+  z-index: 99999;
+}
+
+.Toastify__toast {
+  background: $white !important;
+  color: $text-primary !important;
+  border-radius: $radius-lg !important;
+  box-shadow: $shadow-lg !important;
+  border: 1px solid $border-light !important;
+}
+
+.Toastify__close-button {
+  color: $gray-400 !important;
+}
+
+.Toastify__progress-bar {
+  background: $primary-color !important;
+}

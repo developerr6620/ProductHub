@@ -1,0 +1,148 @@
+@import "../variables";
+
+.admin-login {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $bg-secondary;
+  padding: 2rem;
+
+  &__container {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  &__card {
+    background: $white;
+    border-radius: $radius-xl;
+    padding: 2.5rem;
+    box-shadow: $shadow-lg;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0 0 0.5rem;
+  }
+
+  &__subtitle {
+    font-size: 0.875rem;
+    color: $text-secondary;
+    margin: 0;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: $text-primary;
+  }
+
+  &__input-wrapper {
+    position: relative;
+  }
+
+  &__input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: $gray-400;
+    font-size: 1rem;
+    pointer-events: none;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 2.75rem;
+    background: $bg-secondary;
+    border: 1px solid $border-light;
+    border-radius: $radius-lg;
+    color: $text-primary;
+    font-size: 0.9375rem;
+    transition: all $transition-fast;
+
+    &::placeholder {
+      color: $gray-400;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      background: $white;
+    }
+
+    &--error {
+      border-color: $error-color;
+
+      &:focus {
+        border-color: $error-color;
+      }
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  &__error {
+    font-size: 0.75rem;
+    color: $error-color;
+  }
+
+  &__submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    background: $primary-color;
+    color: $white;
+    border: none;
+    border-radius: $radius-lg;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all $transition-fast;
+    margin-top: 0.5rem;
+
+    &:hover:not(:disabled) {
+      background: $primary-dark;
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    svg {
+      font-size: 1.125rem;
+    }
+  }
+
+  &__loading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}

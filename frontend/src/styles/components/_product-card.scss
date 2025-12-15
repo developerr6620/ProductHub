@@ -1,0 +1,92 @@
+@import "../variables";
+
+.product-card {
+  background: $white;
+  border-radius: $radius-xl;
+  overflow: hidden;
+  transition: all $transition-normal;
+  cursor: pointer;
+
+  &:hover {
+    .product-card__image img {
+      transform: scale(1.02);
+    }
+  }
+
+  &__image {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: $gray-50;
+    border-radius: $radius-xl;
+    margin: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      padding: 1rem;
+      transition: transform $transition-slow;
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: $radius-sm;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+
+    &--available {
+      background: rgba($success-color, 0.1);
+      color: $success-color;
+    }
+
+    &--unavailable {
+      background: rgba($error-color, 0.1);
+      color: $error-color;
+    }
+  }
+
+  &__category {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: $radius-sm;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    background: $white;
+    color: $text-secondary;
+  }
+
+  &__content {
+    padding: 0.75rem 0 0 0;
+  }
+
+  &__title {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: $text-primary;
+    margin-bottom: 0.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4;
+  }
+
+  &__price {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: $text-secondary;
+  }
+
+  &__actions {
+    display: none; // Hidden in the clean design
+  }
+}

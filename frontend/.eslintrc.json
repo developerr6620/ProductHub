@@ -1,0 +1,9 @@
+{
+  "extends": "next/core-web-vitals",
+  "parserOptions": {
+    "babelOptions": {
+      "presets": ["next/babel"]
+    }
+  },
+  "ignorePatterns": ["node_modules/", ".next/"]
+}

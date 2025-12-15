@@ -1,0 +1,108 @@
+// Variables - Clean White Theme
+
+// Primary Colors
+$primary-color: #1a1a1a;
+$primary-dark: #000000;
+$primary-light: #333333;
+$secondary-color: #666666;
+$accent-color: #1a1a1a;
+$success-color: #22c55e;
+$warning-color: #f59e0b;
+$error-color: #ef4444;
+
+// Light Theme Colors
+$white: #ffffff;
+$gray-50: #fafafa;
+$gray-100: #f5f5f5;
+$gray-200: #e5e5e5;
+$gray-300: #d4d4d4;
+$gray-400: #a3a3a3;
+$gray-500: #737373;
+$gray-600: #525252;
+$gray-700: #404040;
+$gray-800: #262626;
+$gray-900: #171717;
+
+// Background colors
+$bg-primary: $white;
+$bg-secondary: $gray-50;
+$bg-tertiary: $gray-100;
+
+// Text colors
+$text-primary: $gray-900;
+$text-secondary: $gray-600;
+$text-muted: $gray-500;
+
+// Border colors
+$border-light: $gray-200;
+$border-medium: $gray-300;
+
+// Shadows - Subtle for white theme
+$shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06),
+  0 2px 4px -1px rgba(0, 0, 0, 0.04);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.06),
+  0 4px 6px -2px rgba(0, 0, 0, 0.04);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08),
+  0 10px 10px -5px rgba(0, 0, 0, 0.02);
+
+// Border Radius
+$radius-sm: 0.25rem;
+$radius-md: 0.375rem;
+$radius-lg: 0.5rem;
+$radius-xl: 0.75rem;
+$radius-2xl: 1rem;
+$radius-full: 9999px;
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-normal: 200ms ease;
+$transition-slow: 300ms ease;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+// Mixins
+@mixin respond-to($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin card-style {
+  background: $white;
+  border-radius: $radius-xl;
+  border: 1px solid $border-light;
+}
+
+@mixin hover-lift {
+  transition: transform $transition-normal, box-shadow $transition-normal;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+}
+
+@mixin input-style {
+  padding: 0.75rem 1rem;
+  background: $white;
+  border: 1px solid $border-light;
+  border-radius: $radius-lg;
+  color: $text-primary;
+  font-size: 0.9375rem;
+  transition: all $transition-fast;
+
+  &::placeholder {
+    color: $gray-400;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $gray-400;
+  }
+}
